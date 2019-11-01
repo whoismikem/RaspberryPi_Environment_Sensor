@@ -4,6 +4,7 @@ from influxdb import InfluxDBClient
 
 
 ADDRESS='192.168.1.10:5000'
+DB_ADDRESS='192.168.1.10'
 DB_NAME='sensor_db'
 
 def to_point(payload):
@@ -19,14 +20,14 @@ def to_point(payload):
                     pressure=payload['pressure']))
     return data
 
-def store_json_response(response):
+def response_convert(response):
     json_res = response.json()
     print("JSON Response:", type(json_res))
     point = to_point(json_res)
     print("Point Type: ", type(point))
     return point
 try:
-    client = InfluxDBClient(host='localhost', port=8086)
+    client = InfluxDBClient(host=DB_ADDRESS, port=8086)
     client.switch_database(DB_NAME)
 except:
     print("Broke here")
@@ -34,7 +35,7 @@ except:
 
 try:
     response = requests.get('http://' + ADDRESS + '/api/bme280')
-    point = store_json_response(response)
+    point = response_convert(response)
 
     client.write(point, {'db':DB_NAME}, 204, 'line')
     print("DATA Written!")
