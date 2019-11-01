@@ -2,7 +2,7 @@
 Born form the need to sample the physical world for various purposes and applications.
 
 ## Stack
-![arch diagram](/extras/arch_diagram.png "arch stack")
+![arch diagram](/extras/arch_diagram.png width="200" height="400")
 
 ## Components
 * Raspberry Pi4 
