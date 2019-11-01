@@ -1,6 +1,9 @@
 # Physical World Sampler
 Born form the need to sample the physical world for various purposes and applications.
 
+## Stack
+![arch diagram](/extras/arch_diagram.png "arch stack")
+
 ## Components
 * Raspberry Pi4 
 * [ Waveshare BME280 Environmental Sensor ]( https://www.amazon.com/gp/product/B07P4CWGGK/ref=ppx_yo_dt_b_asin_title_o09_s00?ie=UTF8&psc= )
