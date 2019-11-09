@@ -8,8 +8,6 @@ DB_ADDRESS='192.168.1.10'
 DB_NAME='sensor_db'
 
 def to_point(payload):
-    print("!!!!!!!!!!!!!!!")
-    print(payload)
     data = []
     measurement_name='bme280'
     data.append("{measurement},location={location} temperature={temperature},humidity={humidity},pressure={pressure}"
@@ -22,15 +20,14 @@ def to_point(payload):
 
 def response_convert(response):
     json_res = response.json()
-    print("JSON Response:", type(json_res))
-    point = to_point(json_res)
-    print("Point Type: ", type(point))
-    return point
+    return to_point(json_res)
+
+
 try:
     client = InfluxDBClient(host=DB_ADDRESS, port=8086)
     client.switch_database(DB_NAME)
 except:
-    print("Broke here")
+    print("DB Connection broken!")
 
 
 try:
@@ -38,9 +35,5 @@ try:
     point = response_convert(response)
 
     client.write(point, {'db':DB_NAME}, 204, 'line')
-    print("DATA Written!")
-    results =  client.query('SELECT * FROM "bme280"')
-    print("RES!!!!!!!!!!!!!")
-    print(results.raw)
 except:
     raise("Unable to fetch data")
