@@ -12,7 +12,7 @@ services:
                 
   microapi_bme280: 
     image: microapi_bme280
-    privileged: false
+    privileged: true
     ports:
     - 5000:5000
 
