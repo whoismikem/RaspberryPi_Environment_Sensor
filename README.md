@@ -1,12 +1,18 @@
-# Physical World Sampler
-Born form the need to sample the physical world for various purposes and applications.
+# Physical World Sampler (Environment Sensor)
+Born form the need to sample the physical world in many different ways for various purposes and applications.
 
+* Room monitor - Monitor various rooms in your house or other structures.
+* Green house / Grow Tent - Monitor the environment your plants are subjected to.
+    
 ## Stack
 ![arch diagram](/extras/arch_diagram.png)
 
 ## Components
-* Raspberry Pi4 
-* [ Waveshare BME280 Environmental Sensor ]( https://www.amazon.com/gp/product/B07P4CWGGK/ref=ppx_yo_dt_b_asin_title_o09_s00?ie=UTF8&psc= )
+* [ Raspberry Pi4 ](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/)
+* [ Raspberry Pi Case ](https://www.amazon.com/gp/product/B07W3ZMVP1/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)
+* [ Jumper Wires ](https://www.amazon.com/gp/product/B07XC5VWLN/ref=ppx_yo_dt_b_asin_title_o04_s00?ie=UTF8&psc=1) For making sensor connections.
+* [ Waveshare BME280 Environmental Sensor ]( https://www.amazon.com/gp/product/B07P4CWGGK/ref=ppx_yo_dt_b_asin_title_o09_s00?ie=UTF8&psc= ) Providing temperature, humidity and barometric pressure of the surrounding environment.
+* [ Raspberry Pi Camera Module V2: 8 Megapixel,1080p ]( https://www.amazon.com/gp/product/B01ER2SKFS/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1 ) Providing video and imagery of the surrounding environment.
 
 ## Running
 
