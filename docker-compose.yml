@@ -39,7 +39,7 @@ services:
 
   microapi_lightsensor:
     image: microapi_lightsensor
-    container_name: lightsensor
+    container_name: lightsensor_api
     privileged: true
     ports:
       - 5001:5001
