@@ -15,6 +15,11 @@ Born form the need to sample the physical world in many different ways for vario
 * [ Raspberry Pi Camera Module V2: 8 Megapixel,1080p ]( https://www.amazon.com/gp/product/B01ER2SKFS/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1 ) Providing video and imagery of the surrounding environment.
 
 ## Running
+### Docker Compose
+1. Build container images:  `docker-compose build`
+2. Start containers: `docker-compose up -d`
+
+Build and run: `docker-compose up --build -V`
 
 ### BME280 Data Api
 Basic flask app exposing the sensor data so it can be easly collected.
