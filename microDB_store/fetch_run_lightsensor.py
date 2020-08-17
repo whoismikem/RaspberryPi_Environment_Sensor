@@ -3,8 +3,8 @@ import json
 from influxdb import InfluxDBClient
 
 
-ADDRESS='localhost:5001'
-DB_ADDRESS='localhost'
+ADDRESS='microapi_lightsensor:5001' # docker-compose container_name
+DB_ADDRESS='db' # docker-compose container_name
 DB_NAME='sensor_db'
 
 def to_point(payload):
