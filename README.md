@@ -56,3 +56,9 @@ cd `microDB_store`
 
 2. Run the grafana container:  
 `docker run -d -p 3000:3000 -v ~/grafana-storage:/var/lib/grafana grafana/grafana-arm32v7-linux:dev-musl`
+
+### Monitor PI Resources
+Helpful Setup Link: https://medium.com/@dorian599/iot-raspberry-pi-container-and-system-monitoring-with-influxdb-telegraf-and-grafana-a1767c38c109
+
+Download Grafana Dashboard from here: https://grafana.com/grafana/dashboards/10578
+
