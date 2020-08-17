@@ -11,7 +11,6 @@ def myconverter(o):
         return o.__str__()
 
 def get_data():
-
     port = 1
     address = 0x77 # Adafruit BME280 address. Other BME280s may be different
     bus = smbus2.SMBus(port)
@@ -32,12 +31,10 @@ def get_data():
 app = Flask(__name__)
 
 @app.route("/api/bme280")
-def hello():
-    print("!!!!!")
-    print(get_data())
+def execute_route():
     json_data = json.dumps(get_data(), default = myconverter)
     return json_data
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", debug=True) 
+    app.run(host="0.0.0.0", port=5000, debug=True) 

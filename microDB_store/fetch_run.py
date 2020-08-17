@@ -3,8 +3,8 @@ import json
 from influxdb import InfluxDBClient
 
 
-ADDRESS='192.168.1.10:5000'
-DB_ADDRESS='192.168.1.10'
+ADDRESS='localhost:5000'
+DB_ADDRESS='localhost'
 DB_NAME='sensor_db'
 
 def to_point(payload):
