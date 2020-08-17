@@ -8,7 +8,7 @@ services:
     - 8086:8086
 
   collector:
-    image: bme_collector
+    image: collector
                 
   microapi_bme280: 
     image: microapi_bme280
@@ -24,3 +24,12 @@ services:
     - ~/grafana-storage:/var/lib/grafana
     ports:
     - 3000:3000
+
+  # camera:
+  #   image: grafana/grafana-arm32v7-linux:dev-musl 
+  #   environment: 
+  #    - GF_PANELS_DISABLE_SANITIZE_HTML=true
+  #   volumes:
+  #   - ~/grafana-storage:/var/lib/grafana
+  #   ports:
+  #   - 3000:3000
