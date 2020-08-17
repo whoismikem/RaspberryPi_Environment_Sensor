@@ -31,9 +31,9 @@ except:
 
 
 try:
-    url = 'http://' + ADDRESS + '/api/bme280'
+    url = 'http://' + ADDRESS + '/api/light'
     print(f'Connecting to sensor at: {url}')
-    response = requests.get('http://' + ADDRESS + '/api/light')
+    response = requests.get(url)
     print(f'RESPONSE (lightsensor): {response.json()}')
     point = response_convert(response)
 
