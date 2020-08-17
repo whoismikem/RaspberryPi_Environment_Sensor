@@ -2,6 +2,7 @@ version : '3'
 services:
   db:
     image: influxdb
+    name: influxdb
     volumes:
     - ~/influxDB:/var/lib/influxdb
     ports: 
@@ -9,15 +10,18 @@ services:
 
   collector:
     image: collector
+    name: collector
                 
   microapi_bme280: 
     image: microapi_bme280
+    name: bme280_api
     privileged: true
     ports:
     - 5000:5000
 
   dashboard:
-    image: grafana/grafana-arm32v7-linux:dev-musl 
+    image: grafana/grafana-arm32v7-linux:dev-musl
+    name: grafana 
     environment: 
      - GF_PANELS_DISABLE_SANITIZE_HTML=true
     volumes:
