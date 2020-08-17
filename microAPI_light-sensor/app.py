@@ -18,6 +18,8 @@ def get_data():
         result = False;
     elif result == 0:
         result = True;
+    else:
+        result = None
 
     now = datetime.datetime.now()
     data = {
@@ -31,7 +33,7 @@ def get_data():
 app = Flask(__name__)
 
 @app.route("/api/light")
-def hello():
+def execute_route():
     json_data = json.dumps(get_data(), default = myconverter)
     return json_data
 

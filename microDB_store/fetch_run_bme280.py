@@ -31,7 +31,9 @@ except:
 
 
 try:
-    response = requests.get('http://' + ADDRESS + '/api/bme280')
+    url = 'http://' + ADDRESS + '/api/bme280'
+    print(f'Connecting to sensor at: {url}')
+    response = requests.get(url)
     point = response_convert(response)
 
     client.write(point, {'db':DB_NAME}, 204, 'line')
