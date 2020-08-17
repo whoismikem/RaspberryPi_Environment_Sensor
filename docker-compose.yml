@@ -21,6 +21,9 @@ services:
     privileged: true
     ports:
       - 5000:5000
+    build:
+      context: ./microAPI_bme280
+      dockerfile: Dockerfile
 
   dashboard:
     image: grafana/grafana-arm32v7-linux:dev-musl
@@ -33,12 +36,15 @@ services:
       - 3000:3000
 
   camera:
-    image: picam
+    image: picam:latest
     container_name: picam
     devices:
       - /dev/video0:/dev/video0
     ports:
       - 8081:8081
+    build:
+      context: ./motion_cam
+      dockerfile: Dockerfile
 
   microapi_lightsensor:
     image: microapi_lightsensor
@@ -46,3 +52,8 @@ services:
     privileged: true
     ports:
       - 5001:5001
+    build:
+      context: ./microAPI_light-sensor
+      dockerfile: Dockerfile
+
+
