@@ -20,7 +20,9 @@ def to_point(payload):
 
 def response_convert(response):
     json_res = response.json()
-    return to_point(json_res)
+    point = to_point(json_res)
+    print(f'POINT (bme280): {point}')
+    return point
 
 
 try:
@@ -34,6 +36,7 @@ try:
     url = 'http://' + ADDRESS + '/api/bme280'
     print(f'Connecting to sensor at: {url}')
     response = requests.get(url)
+    print(f'RESPONSE (bem280): {response.json()}')
     point = response_convert(response)
 
     client.write(point, {'db':DB_NAME}, 204, 'line')

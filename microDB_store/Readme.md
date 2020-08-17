@@ -1,4 +1,5 @@
-# Purpose
+# Collector
+## Purpose
 Collect and store various data in time searies format to be visualized
 
 ## Database
@@ -8,3 +9,6 @@ InfluxDB line protocol format example
 ## Setup
 Build Docker Container:  
 `docker build -t collector:latest .`
+
+Run container:  
+`docker run --name collector --network pi_env_project_default collector:latest`

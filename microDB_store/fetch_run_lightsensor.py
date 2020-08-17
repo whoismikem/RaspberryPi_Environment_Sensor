@@ -10,7 +10,7 @@ DB_NAME='sensor_db'
 def to_point(payload):
     data = []
     measurement_name='lightsensor'
-    data.append("{measurement},location={location} lights={temperature}"
+    data.append("{measurement},location={location} lights={lights}"
             .format(measurement=measurement_name,
                     location="closet1",
                     lights=payload['light']))
