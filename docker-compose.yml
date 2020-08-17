@@ -11,6 +11,9 @@ services:
   collector:
     image: collector
     container_name: collector
+    build:
+      context: ./microDB_store
+      dockerfile: Dockerfile
                 
   microapi_bme280: 
     image: microapi_bme280
