@@ -35,13 +35,11 @@ services:
     devices:
       - /dev/video0:/dev/video0
     ports:
-    - 8081:8081
+      - 8081:8081
 
   microapi_lightsensor:
     image: microapi_lightsensor
     container_name: lightsensor
     privileged: true
-    devices:
-      - /dev/video0:/dev/video0
     ports:
-    - 8081:8081
+      - 5001:5001
