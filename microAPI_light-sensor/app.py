@@ -4,11 +4,14 @@ import RPi.GPIO as GPIO
 from time import sleep
 from flask import Flask
 
+BIND_ADDRESS = '0.0.0.0'
+PORT = 5001
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(4,GPIO.IN)
 
 # Date to string converter
-def myconverter(o):
+def date_to_str(o):
     if isinstance(o, datetime.datetime):
         return o.__str__()
 
@@ -21,9 +24,9 @@ def get_data():
     else:
         result = None
 
-    now = datetime.datetime.now()
+    datetime_now = datetime.datetime.now()
     data = {
-            "time_stamp":now,
+            "time_stamp": datetime_now,
             "light": result
         }
 
@@ -34,8 +37,12 @@ app = Flask(__name__)
 
 @app.route("/api/light")
 def execute_route():
-    json_data = json.dumps(get_data(), default = myconverter)
-    return json_data
+    try:
+        json_data = json.dumps(get_data(), default = date_to_str)
+        return json_data
+    except Exception as err:
+        print(f'[ Error ]: err')
+        return { 'error': err}
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5001, debug=True) 
+    app.run(host=BIND_ADDRESS, port=PORT, debug=True) 
